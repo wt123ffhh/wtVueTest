@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <v-header></v-header>
+    <v-header :seller="seller"></v-header>
     <div class="itemView">
       <router-link class="item"
                    to="/">商品</router-link>
@@ -14,11 +14,11 @@
 </template>
 
 <script>
-import header from './components/header.vue'
+import header from './components/header/header.vue'
 export default {
   data () {
     return {
-      seller: ''
+      seller: {}
     }
   },
   components: {
@@ -29,7 +29,7 @@ export default {
     this.axios.get('/api/seller')
       .then(function (res) {
         console.log(res.data)
-        that.seller = res.data
+        that.seller = res.data.data
       })
 
     this.axios.get('/api/goods')

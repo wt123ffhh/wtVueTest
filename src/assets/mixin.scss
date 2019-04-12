@@ -1,3 +1,9 @@
+// body,html{
+//   line-height:1;
+//   font-weight: 200;
+//   font-family: 'PingFang SC', 'STHeitiSC-Light', 'Helvetica-Light', arial;
+// }
+
 @mixin border-1px($color) {
   position: relative;
 
@@ -10,4 +16,8 @@
     border-top: 1px solid $color;
     content: '';
   }
+}
+
+@mixin bg-image($url) {
+  background-image: url($url+"@2x.png")
 }
