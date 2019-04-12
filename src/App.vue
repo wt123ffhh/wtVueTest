@@ -18,11 +18,27 @@ import header from './components/header.vue'
 export default {
   data () {
     return {
-
+      seller: ''
     }
   },
   components: {
     'v-header': header
+  },
+  created () {
+    var that = this
+    this.axios.get('/api/seller')
+      .then(function (res) {
+        console.log(res.data)
+        that.seller = res.data
+      })
+
+    this.axios.get('/api/goods')
+      .then(res => {
+        console.log(res.data)
+      })
+  },
+  mounted () {
+    window.vue = this
   }
 }
 </script>
